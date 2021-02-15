@@ -1,0 +1,143 @@
+<!-- <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm.value)">
+ 
+  <fieldset>
+      <legend>Contact Form</legend>
+     <p>
+       <label for="firstname">First Name</label>
+       <input type="text" id="firstname" name="firstname" ngModel
+       required minlength="3" maxlength="10" #firstname="ngModel"/>
+     </p>
+     <div class="alert alert-danger" *ngIf="firstname.touched && (!firstname.valid)">
+      <div *ngIf="firstname.errors.required">First Name is required.***</div>
+      <div *ngIf="firstname.errors.minlength">First Name is minimum 3 character.</div>
+      <div *ngIf="firstname.errors.maxlength">First Name is maximum 10 character.</div>
+      </div>
+           
+     
+    
+     <p>
+       <label for="lastname">Last Name</label>
+       <input type="text" id="lastname" name="lastname" ngModel>
+     </p>
+    
+     <p>
+       <label for="email">Email </label>
+       <input type="text" id="email" name="email" ngModel>
+     </p>
+    
+     <p>
+       <label for="gender">Geneder</label>
+       <input type="radio" value="male" id="gender" name="gender" ngModel> Male
+       <input type="radio" value="female" id="gender" name="gender" ngModel> Female
+       <input type="radio" value="Others" id="gender" name="gender" ngModel> Others
+       
+     </p>
+    
+     <p>
+       <label for="isMarried">Married</label>
+       <input #maritalStatus type="checkbox" id="isMarried" [checked]="maritalStatus"
+           name="isMarried" (change)="MarriageStatus(maritalStatus.checked)" ngModel>
+       
+     </p>
+    
+     <p>
+     <label for="country">country </label>
+     <select name="country" id="country" ngModel> 
+       <option selected="" value=""></option>
+       <option [ngValue]="c.name" *ngFor="let c of countryList">
+         {{c.name}}
+       </option>
+     </select>
+     </p>
+    
+     <p>
+       <button class="btn btn-primary" type="submit" [class.disabled]="!contactForm.valid">Submit</button>
+     </p>
+ </fieldset>      
+   </form> -->
+
+
+   <!-- <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)">
+ 
+    <fieldset>
+        <legend>Contact Form</legend>
+       <p>
+         <label for="firstname">First Name</label>
+         <input type="text" id="firstname" name="firstname" ngModel
+         required minlength="3" maxlength="10" #FIRSTNAME="ngModel"/>
+       </p>
+         <div class="alert alert-danger" *ngIf="FIRSTNAME.touched && !FIRSTNAME.valid">
+           <div *ngIf="FIRSTNAME.errors.required">First Name is required.***</div>
+           <div *ngIf="FIRSTNAME.errors.minlength">First Name is minimum {{ FIRSTNAME.errors.minlength.requiredLength }} character.</div>
+           <div *ngIf="FIRSTNAME.errors.maxlength">First Name is maximum 10 character.</div>
+       </div>
+         
+       
+      
+       <p>
+         <label for="lastname">Last Name</label>
+         <input type="text" id="lastname" name="lastname" ngModel>
+       </p>
+      
+       <p>
+         <label for="email">Email </label>
+         <input type="text" id="email" name="email" ngModel>
+       </p>
+      
+       <p>
+         <label for="gender">Geneder</label>
+         <input type="radio" value="male" id="gender" name="gender" ngModel> Male
+         <input type="radio" value="female" id="gender" name="gender" ngModel> Female
+         <input type="radio" value="Others" id="gender" name="gender" ngModel> Others
+         
+       </p>
+      
+       <p>
+         <label for="isMarried">Married</label>
+         <input #maritalStatus type="checkbox" id="isMarried" [checked]="maritalStatus"
+             name="isMarried" (change)="MarriageStatus(maritalStatus.checked)" ngModel>
+         
+       </p>
+      
+       <p>
+       <label for="country">country </label>
+       <select name="country" id="country" ngModel> 
+         <option selected="" value=""></option>
+         <option [ngValue]="c.name" *ngFor="let c of countryList">
+           {{c.name}}
+         </option>
+       </select>
+       </p>
+      
+       <p>
+         <button class="btn btn-primary" type="submit" [class.disabled]="!contactForm.valid">Submit</button>
+       </p>
+   </fieldset>      
+     </form> -->
+
+<div>
+  <div>
+    <table class="table table-bordered">
+      <thead>
+        <tr><th>Name</th>
+        <th>
+          City
+        </th>
+        <th>State</th>
+        <th>Country</th>
+      </tr>
+  
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of publishers">
+          <td>{{p.pub_name}}</td>
+          <td>{{p.city}}</td>
+          
+          <td>{{p.state}}</td>
+          <td>{{p.country}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <input type="button" (click)=  loadPublishers($event) value="Click" />
+</div>
