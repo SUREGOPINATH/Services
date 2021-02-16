@@ -1,0 +1,16 @@
+<form [formGroup]="ContactForm" (ngSubmit)="onsubmit()">
+    <input type="text" id="firstname" formControlName="firstname" name="firstname"/>
+    <br>
+    <input type="text" id="lastname" formControlName="lastname" name="lastname"/>
+    <br>
+    <!-- <input type="text" id="country" formControlName="country" name="country"/> -->
+    <br>
+    <input type="text" id="email" formControlName="email" name="email"/>
+    <br>
+    <select id="state" name="state" formControlName="state">
+        <option [ngValue]="null" disabled>Choose State</option>
+        <option [ngValue]="s" *ngFor="let s of states">{{s}}</option>
+    </select>
+    <br>
+    <input type="submit" id="btn" name="btn" value="submit"/>
+  </form>
