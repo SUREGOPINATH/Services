@@ -1,0 +1,74 @@
+1) import {ReactiveFormsModule} from '@angular/forms';
+     import {FormGroup,FormControl,Validators} from '@angular/forms';
+
+2) Form Group, Form Control, form Array
+
+3) Form Control stores value and state of the form element and helps us to interact with them using properties and methods.
+form control is single element
+
+4) Form Group represent collection of form controls. it can also conains form groups and form arrays
+
+5) To craete a form group : (create this in Component)
+	
+	ContactForm=new FormGroup({
+		firstname:new FormControl(),
+		lastname:new FormControl(),
+		email: new FormControl()
+		})
+
+	onsubmit() {
+		console.log(this.ContactForm.value);
+	}
+
+6) Create a Html Form:
+
+	<form>
+		<input type="text" id="firstname" name="firstname"/>
+		<input type="text" id="lastname" name="lastname"/>
+		<input type="text" id="email" name="email"/>
+		<input type="submit" id="btn" name="btn" value="submit"/>
+		<button type="submit>submit</button>
+	</form>
+
+7) Binding Template the model
+
+	<form [formGroup]="ContactForm" (ngSubmit)="onsubmit()">
+		<input type="text" id="firstname" formControlName="firstname" name="firstname"/>
+		<input type="text" id="lastname" formControlName="lastname" name="lastname"/>
+		<input type="text" id="email" formControlName="email" name="email"/>
+		<input type="submit" id="btn" name="btn" value="submit"/>
+		<button type="submit>submit</button>
+	</form>
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+8) if u want assign default value
+
+	ContactForm=new FormGroup({
+		firstname:new FormControl('abdul'),
+		lastname:new FormControl('sabhir'),
+		email: new FormControl('abdulsabhir@gmail.com')
+		})
+
+		OR
+
+	ContactForm=new FormGroup({
+		firstname:new FormControl({value:'abdul'}),
+		lastname:new FormControl({value:'sabhir'}),
+		email: new FormControl({value:'abdulsabhir@gmail.com',disabled:true})
+		})
+
+9) if u want Validations
+
+	ContactForm=new FormGroup({
+		firstname:new FormControl({value:'abdul'},[Validators.required,Validators.minlength(10)]),
+		lastname:new FormControl({value:'sabhir'}),
+		email: new FormControl({value:'abdulsabhir@gmail.com',disabled:true})
+		})
+
+			OR
+
+	ContactForm=new FormGroup({
+		firstname:new FormControl('',[Validators.required,Validators.minlength(10)]),
+		lastname:new FormControl({value:'sabhir'}),
+		email: new FormControl({value:'abdulsabhir@gmail.com',disabled:true})
+		})
+	
