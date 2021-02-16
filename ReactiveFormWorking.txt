@@ -72,3 +72,6 @@ form control is single element
 		email: new FormControl({value:'abdulsabhir@gmail.com',disabled:true})
 		})
 	
+10) For installing Bootstrap 
+
+	npm install bootstrap --save
